@@ -17,12 +17,22 @@ const slides = [
 	}
 ]
 
-const arrowLeft = document.querySelector(".arrow_left");
+let i = 0;
+let bannerImg = document.querySelector(".banner-img");
+let bannerTagline = document.querySelector("#banner-tagline");
 const arrowRight = document.querySelector(".arrow_right");
+const arrowLeft = document.querySelector(".arrow_left");
+
+arrowRight.addEventListener("click", function () {
+	i++;
+	bannerImg.src = "./assets/images/slideshow/" + slides[i].image;
+	bannerTagline.innerHTML = slides[i].tagLine;
+	console.log("Fleche droite");
+})
 
 arrowLeft.addEventListener("click", function () {
-	console.log("Fleche gauche")
-})
-arrowRight.addEventListener("click", function () {
-	console.log("Fleche droite")
+	i--;
+	bannerImg.src = "./assets/images/slideshow/" + slides[i].image;
+	bannerTagline.innerHTML = slides[i].tagLine;
+	console.log("Fleche gauche");
 })
