@@ -20,19 +20,32 @@ const slides = [
 let i = 0;
 let bannerImg = document.querySelector(".banner-img");
 let bannerTagline = document.querySelector("#banner-tagline");
+let dot = document.querySelectorAll(".dot");
 const arrowRight = document.querySelector(".arrow_right");
 const arrowLeft = document.querySelector(".arrow_left");
 
 arrowRight.addEventListener("click", function () {
-	i++;
+	dot[i].classList.remove("dot_selected");
+	if (i == 3) {
+		i = 0;
+	} else {
+		i++;
+	}
 	bannerImg.src = "./assets/images/slideshow/" + slides[i].image;
 	bannerTagline.innerHTML = slides[i].tagLine;
+	dot[i].classList.add("dot_selected");
 	console.log("Fleche droite");
 })
 
 arrowLeft.addEventListener("click", function () {
-	i--;
+	dot[i].classList.remove("dot_selected");
+	if (i == 0) {
+		i = 3;
+	} else {
+		i--;
+	}
 	bannerImg.src = "./assets/images/slideshow/" + slides[i].image;
 	bannerTagline.innerHTML = slides[i].tagLine;
+	dot[i].classList.add("dot_selected");
 	console.log("Fleche gauche");
 })
